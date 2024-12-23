@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    padding: 4rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+div.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+div.panes {
+    display: flex;
+    gap: 2rem;
+}
+
+div.panes a {
+    padding: .5rem;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    color: #222;
+}
+
+div.panes a:hover {
+    border-bottom-color: gray;
+}
+
+div.panes a.active {
+    border-bottom-color: purple;
+    font-weight: 700;
+    color: #000;
+}
+
+section.container {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+form {
+    display: grid;
+    gap: 2rem;
+}
+
+div.row {
+    display: flex;
+    gap: 2rem;
+}
+
+div.form-control {
+    flex: 1;
+    padding: 1rem;
+    border-radius: .6rem;
+    border: 1px solid #ccc;
+    display: grid;
+    gap: .5rem;
+}
+
+div.input-control {
+    display: flex;
+}
+
+form label {
+    font-size: 0.975rem;
+    font-weight: 700;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    font-size: 1.2rem;
+    border: 0;
+    resize: none;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border: 0;
+}
+
+.form-buttons a {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #000;
+}
+
+div.label {
+    display: flex;
+    align-items: center;
+    font-size: 0.825rem;
+    justify-content: space-between;
+}
+
+div.label span {
+    color: red;
+    display: none;
+}
+
+div.label span.active {
+    display: block;
+}
+
+table {
+    border-radius: .6rem;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 1px #222;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+table thead {
+    text-align: left;
+    background-color: #f1f1f1;
+}
+
+th,
+td {
+    padding: .5rem 1rem;
+}
+
+section.section-delete {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    background: rgba(0, 0, 0, .7);
+
+    display: none;
+    place-items: center;
+}
+
+section.section-delete.active {
+    display: grid;
+}
+
+form.delete-form.delete-form {
+    background: #fff;
+}
+
+form.delete-form {
+    gap: 0;
+}
+
+form.delete-form b {
+    text-transform: capitalize;
+}
+
+form.delete-form h2 {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+}
+
+form.delete-form div.form-button {
+    padding: 2rem;
+}
+
+form.delete-form div {
+    margin: 0;
+    padding: 0;
+}
+
+form.delete-form p {
+    font-size: 1.5rem;
+    margin: 2rem;
+    margin-bottom: 0;
+}
+
+form.delete-form button {
+    font-size: 1.1rem;
+    font-weight: bolder;
+    border: 0;
+    background: red;
+    padding: 1rem;
+    color: #fff;
+}
+
+form.delete-form a {
+    margin-left: 1rem;
+    background: transparent;
+    color: #000;
+}

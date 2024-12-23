@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRC - {!! $title !!}</title>
+    <link rel="stylesheet" href="/assets/css/home.css">
+</head>
+<body>
+    {{body}}
+
+    <div class="flash-message @success('success', 'err')">
+        @message
+    </div>
+
+    <script src="/assets/js/home.js"></script>
+</body>
+</html>

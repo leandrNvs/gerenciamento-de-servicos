@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRC - {!! $title !!}</title>
+    <link rel="stylesheet" href="/assets/css/form.css">
+</head>
+<body>
+    <main class="container">
+        {{body}}
+    </main>
+
+    <div class="flash-message @success('success', 'err')">
+        @message
+    </div>
+
+    <script src="/assets/js/form.js"></script>
+</body>
+</html>

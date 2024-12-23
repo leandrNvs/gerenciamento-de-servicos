@@ -1,0 +1,16 @@
+{
+    "name": "root/html",
+    "autoload": {
+        "files": [
+          "src/Helpers/helpers.php"
+        ],
+        "psr-4": {
+            "Src\\": "src/",
+            "App\\": "app/",
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
+    }
+}

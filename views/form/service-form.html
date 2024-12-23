@@ -1,0 +1,126 @@
+@template(template/form)
+
+@vars(['title' => 'Atualização de dados'])
+
+@reusable('form-control')
+<div class="form-control">
+  <div class="label">
+    <label for="$id">$label</label>
+    <span class="form-err @hasError('active')">@err('$bag-name', '$name')</span>
+  </div>
+  <div class="input-control">
+    <input type="$type" name="$name" id="$id" value="@bag('$bag-name', '$name')" />
+  </div>
+</div>
+@endreusable
+
+@reusable('textarea')
+<div class="form-control">
+  <div class="label">
+    <label for="$id">$label</label>
+    <span class="form-err @hasError('active')">@err('$bag-name', '$name')</span>
+  </div>
+  <div class="input-control textarea">
+    <textarea name="$name" id="$id" rows="7">@bag('$bag-name', '$name')</textarea>
+  </div>
+</div>
+@endreusable
+
+<section class="section-delete">
+  <form action="" method="post" autocomplete="off" class="delete-form">
+    @!delete()
+    @!hidden('id')
+    <h2></h2>
+    <div class="content">
+      <p>Tem certeza que deseja apagar os dados de <b></b>?</p>
+    </div>
+    <div class="form-button">
+      <button type="submit">Confirmar</button>
+      <a href="javascript:void(0)"
+        onclick="this.parentElement.parentElement.parentElement.classList.remove('active')">Cancelar</a>
+    </div>
+  </form>
+</section>
+
+<section class="container">
+  <h1>Atualização de dados</h1>
+
+  <div class="filters">
+    <div class="panes">
+      <a href="@!route('pages.update', ['id' => $service->id])">Atualização de dados</a>
+      <a href="@!route('pages.update-service', ['id' => $service->id])" class="active">Informações do serviço prestado</a>
+    </div>
+  </div>
+
+  <h2>1. informações sobre o serviço prestado</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Serviço prestado</th>
+        <th>Desconto</th>
+        <th>Valor do serviço</th>
+        <th>Total</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {!! $serviceinfo_list !!}
+    </tbody>
+  </table>
+
+  <form action="@!route('serviceinfo.store', ['id' => $service->id])" class="form-serviceinfo" method="POST" autocomplete="off">
+    <div>
+      @use('textarea', ['id' => 'service_detail', 'name' => 'detail', 'label' => 'Descrição do serviço', 'bag-name' => 'serviceinfo-data'])
+    </div>
+    <div class="row">
+      @use('form-control', ['id' => 'service_price', 'name' => 'price', 'label' => 'Valor do serviço', 'bag-name' => 'serviceinfo-data'])
+      @use('form-control', ['id' => 'service_descount', 'name' => 'descount', 'label' => 'Desconto aplicado', 'bag-name' => 'serviceinfo-data'])
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit">Adicionar informações</button>
+      <a href="/">Cancelar</a>
+    </div>
+  </form>
+</section>
+
+<section class="container" style="margin-top: 2rem;">
+  <h2>2. informações sobre as peças</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Local da compra</th>
+        <th>Vendedor</th>
+        <th>Data da compra</th>
+        <th>Peça</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Total</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {!! $part_list !!}
+    </tbody>
+  </table>
+
+  <form action="@!route('part.store', ['id' => $service->id])" method="POST" class="form-part" autocomplete="off">
+    <div class="row">
+      @use('form-control', ['id' => 'part_seller', 'name' => 'seller', 'label' => 'Nome do vendedor', 'bag-name' => 'part-data'])
+      @use('form-control', ['id' => 'part_place', 'name' => 'place', 'label' => 'Local da compra', 'bag-name' => 'part-data'])
+      @use('form-control', ['id' => 'part_date_purchase', 'name' => 'date_purchase', 'label' => 'Data da compra', 'bag-name' => 'part-data'])
+    </div>
+    <div class="row">
+      @use('form-control', ['id' => 'part_name', 'name' => 'name', 'label' => 'Peça', 'bag-name' => 'part-data'])
+      @use('form-control', ['id' => 'part_price', 'name' => 'price', 'label' => 'Valor da peça', 'bag-name' => 'part-data'])
+      @use('form-control', ['id' => 'part_quantity', 'name' => 'quantity', 'label' => 'Quantidade comprada', 'bag-name' => 'part-data'])
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit">Adicionar informações</button>
+      <a href="/">Cancelar</a>
+    </div>
+  </form>
+</section>

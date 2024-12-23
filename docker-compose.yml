@@ -1,0 +1,35 @@
+services:
+  php:
+    build: 
+      context: ./
+    restart: always
+    container_name: php-container
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+      - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+    networks:
+      - my-system
+    depends_on:
+      - mysql
+    user: 'php'
+
+  mysql:
+    image: mysql
+    restart: always
+    container_name: mysql-container
+    networks:
+      - my-system
+    env_file:
+      - .env
+    volumes:
+      - db:/var/lib/mysql
+    user: '1000'
+
+networks:
+  my-system:
+    driver: bridge
+
+volumes:
+  db:
